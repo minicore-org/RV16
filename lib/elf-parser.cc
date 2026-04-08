@@ -1,8 +1,8 @@
+#include "elf-parser.h"
+
 #include <cstring>
 #include <fstream>
 #include <iterator>
-
-#include "elf-parser.h"
 
 // Minimal ELF structure definitions - avoids elf.h dependency
 namespace {

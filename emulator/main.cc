@@ -29,7 +29,8 @@ int main(int argc, char *argv[]) {
                 std::cerr << std::format("Error: unsupported ELF class (expected 32-bit)\n");
                 break;
             case rv16::ElfError::unsupportedArch:
-                std::cerr << std::format("Error: unsupported architecture (expected little-endian)\n");
+                std::cerr << std::format(
+                    "Error: unsupported architecture (expected little-endian)\n");
                 break;
             case rv16::ElfError::malformedHeader:
                 std::cerr << std::format("Error: malformed ELF header\n");
@@ -44,15 +45,15 @@ int main(int argc, char *argv[]) {
 
     std::cout << std::format("Sections ({0}):", image.sections.size());
     for (const auto &section : image.sections) {
-        std::cout << std::format("  {:20s}  addr=0x{:04x}  size={:5d} bytes\n", section.name, section.address,
-                     section.size);
+        std::cout << std::format("  {:20s}  addr=0x{:04x}  size={:5d} bytes\n", section.name,
+                                 section.address, section.size);
     }
 
     if (!image.symbols.empty()) {
         std::cout << std::format("\nSymbols ({}):", image.symbols.size());
         for (const auto &symbol : image.symbols) {
-            std::cout << std::format("  {:30s}  addr=0x{:04x}  size={:5d}\n", symbol.name, symbol.address,
-                         symbol.size);
+            std::cout << std::format("  {:30s}  addr=0x{:04x}  size={:5d}\n", symbol.name,
+                                     symbol.address, symbol.size);
         }
     }
 
